@@ -1,7 +1,17 @@
 class Chick extends MovableObject {
+    width = 70;
+    height = 70;
+    y = 380;
     
-    
-    constructor() {
-        super().loadImg('img/3_enemies_chicken/chicken_normal/1_walk/1_w.png');
+    constructor(imagePath, x) {
+        super().loadImg(imagePath, x);
+        this.x= 200 + Math.random() * 500;
+        this.moveLeft();
+    }
+
+    moveLeft() {
+        setInterval(() => {
+            this.x -= 0.6;
+        }, 1000 / 60);
     }
 }
