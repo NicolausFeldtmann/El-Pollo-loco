@@ -19,7 +19,7 @@ class Char extends MovableObject {
     constructor() {
         super().loadImg('img/2_character_pepe/2_walk/W-21.png');
         this.loadImages(this.IMAGE_WALKING);
-        this.animate();
+        //this.animate();
     }
 
     animate() {
