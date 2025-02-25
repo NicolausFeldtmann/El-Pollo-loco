@@ -20,7 +20,7 @@ window.addEventListener('keydown', (e) => {
     if(e.keyCode == 83) {
         keyboard.DOWN = true;
     }
-    if(e.kexCode == 32) {
+    if(e.keyCode == 32) {
         keyboard.SPACE = true;
     } 
     console.log('key pressed', e);
@@ -29,10 +29,10 @@ window.addEventListener('keydown', (e) => {
 
 window.addEventListener('keyup', (e) => {
     if(e.keyCode == 65) {
-        keyboard.RIGHT = false;
+        keyboard.LEFT = false;
     }
     if(e.keyCode == 68) {
-        keyboard.LEFT = false;
+        keyboard.RIGHT = false;
     }
     if(e.keyCode == 87) {
         keyboard.UP = false;

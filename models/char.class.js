@@ -19,7 +19,7 @@ class Char extends MovableObject {
     constructor() {
         super().loadImg('img/2_character_pepe/2_walk/W-21.png');
         this.loadImages(this.IMAGE_WALKING);
-        //this.animate();
+        this.animate();
     }
 
     animate() {
@@ -39,11 +39,11 @@ class Char extends MovableObject {
         }, 30)
 
         setInterval(() => {
-            if (this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-            let i = this.currentImage % this.IMAGES_WALKING.length;
-            let path = this.IMAGES_WALKING[i];
-            this.img = this.imgCache[path];
-            this.currentImage++;
+            if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+                let i = this.currentImage % this.IMAGE_WALKING.length;
+                let path = this.IMAGE_WALKING[i];
+                this.img = this.imgCache[path];
+                this.currentImage++;
             }
         }, 40);
     }
