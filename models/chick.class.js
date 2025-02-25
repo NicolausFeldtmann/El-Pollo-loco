@@ -1,22 +1,33 @@
 class Chick extends MovableObject {
-    
+
+    y = 350;
+    width = 100;
+    height = 100;
+
+    IMAGE_WALKING = [
+        'img/3_enemies_chicken/chicken_normal/1_walk/1_w.png',
+        'img/3_enemies_chicken/chicken_normal/1_walk/2_w.png',
+        'img/3_enemies_chicken/chicken_normal/1_walk/3_w.png',
+        ];
+    currentImage = 0;
     
     constructor() {
         super().loadImg('img/3_enemies_chicken/chicken_normal/1_walk/1_w.png');
+        this.loadImages(this.IMAGE_WALKING);
         
         this.x = 200 + Math.random() * 500;
         this.moveLeft();
-        //this.animate();
-        this.otherDirection = true;
+        this.animate();
+    
     }
 
     animate() {
         setInterval(() => {
-            let i = this.currentImage % this.IMAGES_WALKING.length;
-            let path = this.IMAGES_WALKING[i];
+            let i = this.currentImage % this.IMAGE_WALKING.length;
+            let path = this.IMAGE_WALKING[i];
             this.img = this.imgCache[path];
             this.currentImage++;
-        }, 80)
+        }, 1000 / 10)
     }
 
     moveLeft() {
