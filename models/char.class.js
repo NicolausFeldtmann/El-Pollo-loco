@@ -25,14 +25,14 @@ class Char extends MovableObject {
     animate() {
         
         setInterval(() => {
-            if(this.world.keyboard.RIGHT) {
+            if(this.world.keyboard.RIGHT && this.x < this.world.level.levelEnd ) {
                 this.x += this.speed;
                 this.otherDirection = false;
             }
         }, 30)
 
         setInterval(() => {
-            if(this.world.keyboard.LEFT) {
+            if(this.world.keyboard.LEFT && this.x > 100) {
                 this.x -= this.speed;
                 this.otherDirection = true;
             }
@@ -40,12 +40,9 @@ class Char extends MovableObject {
         }, 30)
 
         setInterval(() => {
-            if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
-                let i = this.currentImage % this.IMAGE_WALKING.length;
-                let path = this.IMAGE_WALKING[i];
-                this.img = this.imgCache[path];
-                this.currentImage++;
-            }
+                if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
+                    this.playAnimation(this.IMAGE_WALKING);
+                }
         }, 40);
     }
 

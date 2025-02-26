@@ -23,10 +23,7 @@ class Chick extends MovableObject {
 
     animate() {
         setInterval(() => {
-            let i = this.currentImage % this.IMAGE_WALKING.length;
-            let path = this.IMAGE_WALKING[i];
-            this.img = this.imgCache[path];
-            this.currentImage++;
+            this.playAnimation(this.IMAGE_WALKING);
         }, 1000 / 10)
     }
 
