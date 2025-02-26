@@ -20,7 +20,7 @@ class Boss extends MovableObject {
         super().loadImg('img/3_enemies_chicken/chicken_normal/1_walk/1_w.png');
         this.loadImages(this.IMAGE_WALKING);
         
-        this.x = 700;
+        this.x = 5040;
         this.moveLeft();
         this.animate();
     
