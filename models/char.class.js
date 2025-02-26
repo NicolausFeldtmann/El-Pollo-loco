@@ -23,7 +23,7 @@ class Char extends MovableObject {
     
     width = 150;
     height = 280;
-    y = 80;
+    y = 10;
     currentImage = 0;
     world;
     speed = 10;
@@ -40,13 +40,11 @@ class Char extends MovableObject {
         
         setInterval(() => {
             if(this.world.keyboard.RIGHT && this.x < this.world.level.levelEnd ) {
-                this.x += this.speed;
-                this.otherDirection = false;
+                this.moveRight();
             }
 
             if(this.world.keyboard.LEFT && this.x > 100) {
-                this.x -= this.speed;
-                this.otherDirection = true;
+                this.moveLeft();
             }
             this.world.camera_x = -this.x + 100;
 

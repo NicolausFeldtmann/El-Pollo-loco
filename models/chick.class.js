@@ -16,20 +16,18 @@ class Chick extends MovableObject {
         this.loadImages(this.IMAGE_WALKING);
         
         this.x = 200 + Math.random() * 5040;
-        this.moveLeft();
         this.animate();
     
     }
 
     animate() {
         setInterval(() => {
+            this.moveLeft();
+            this.otherDirection = false;
+        })
+
+        setInterval(() => {
             this.playAnimation(this.IMAGE_WALKING);
         }, 1000 / 10)
-    }
-
-    moveLeft() {
-        setInterval(() => {
-            this.x -= 0.6;
-        }, 1000 / 60);
     }
 }
