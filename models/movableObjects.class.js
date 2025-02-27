@@ -10,6 +10,7 @@ class MovableObject {
     speed = 0.15;
     speedY = 0;
     accel = 1;
+    energy = 100;
 
     applyGravity() {
         setInterval(() => {
@@ -49,23 +50,41 @@ class MovableObject {
     }
 
     drawFrame(ctx) {
+        if(this instanceof Char || this instanceof Chick || this instanceof Boss) {
         ctx.beginPath();
         ctx.lineWidth = '5';
         ctx.strokeStyle = 'blue';
         ctx.rect(this.x, this.y, this.width, this.height);
         ctx.stroke();
+        }
+    }
+
+    isColliding(mo) {
+        return this.x + this.width > mo.x &&
+        this.y + this.height > mo.y &&
+        this.x < mo.x &&
+        this.y < mo.y + mo.height;
+    }
+
+    gotHurt() {
+        this.energy -= 5;
+        if (this.energy < 0) {
+            this.energy = 0;
+        }
+    }
+
+    isDead() {
+        return this.energy == 0;
     }
 
     moveRight() {
         this.x += this.speed;
         this.otherDirection = false;
-        console.log('move Right');
     }
 
     moveLeft() {
         this.x -= this.speed;
         this.otherDirection = true;
-        console.log('move left');
     }
 
     jump() {
