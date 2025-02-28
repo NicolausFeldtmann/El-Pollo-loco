@@ -21,6 +21,12 @@ class Char extends MovableObject {
         'img/2_character_pepe/3_jump/J-39.png',
     ];
 
+    IMAGE_HURT = [
+        'img/2_character_pepe/4_hurt/H-41.png',
+        'img/2_character_pepe/4_hurt/H-42.png',
+        'img/2_character_pepe/4_hurt/H-43.png',
+    ];
+
     IMAGE_DYING = [
         'img/2_character_pepe/5_dead/D-51.png',
         'img/2_character_pepe/5_dead/D-52.png',
@@ -42,7 +48,8 @@ class Char extends MovableObject {
         super().loadImg(this.IMAGE_WALKING[0]);
         this.loadImages(this.IMAGE_WALKING);
         this.loadImages(this.IMAGE_JUMPING);
-        this.loadImages(this.IMAGE_DYING)
+        this.loadImages(this.IMAGE_DYING);
+        this.loadImages(this.IMAGE_HURT);
         this.applyGravity();
         this.animate();
     }
@@ -71,6 +78,8 @@ class Char extends MovableObject {
         setInterval(() => {
             if(this.isDead()) {
                 this.playAnimation(this.IMAGE_DYING);
+            } else if(this.isHurt()) {
+                this.playAnimation(this.IMAGE_HURT);
             } else if(this.isAboveGround()) {
                 this.playAnimation(this.IMAGE_JUMPING);
             } else {
