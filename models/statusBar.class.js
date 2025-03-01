@@ -1,12 +1,12 @@
 class StatusBar extends DrawObjects {
 
     IMAGES_HEALTH = [
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/80.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/60.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/40.png',
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/<<<<<<<<0.png',
         'img/7_statusbars/1_statusbar/2_statusbar_health/blue/20.png',
-        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/0.png',
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/40.png',
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/60.png',
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/80.png',
+        'img/7_statusbars/1_statusbar/2_statusbar_health/blue/100.png',
     ];
 
     prencentage = 100;
@@ -14,9 +14,11 @@ class StatusBar extends DrawObjects {
     constructor() {
         super();
         this.loadImages(this.IMAGES_HEALTH);
-        this.x = 100;
-        this.y = 100;
-        this.prencentage(100);
+        this.width = 200;
+        this.height = 60;
+        this.x = 50;
+        this.y = 20;
+        this.setPrecentage(100);
     }
 
     setPrecentage(prencentage) {

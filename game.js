@@ -5,6 +5,14 @@ let keyboard = new Keyboard();
 function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
+    backGrnMusic = new Audio('audio/music.mp3');
+    playAudio();
+}
+
+function playAudio() {
+    setTimeout(() => {
+        backGrnMusic.play();
+    }, 500)
 }
 
 window.addEventListener('keydown', (e) => {

@@ -20,14 +20,6 @@ class MovableObject extends DrawObjects {
         return this.y < 200;
     }
 
-    loadImages(arr) {
-        arr.forEach(path => {
-        let img = new Image();
-        img.src = path;
-        this.imgCache[path] = img;
-        });
-    }
-
     playAnimation(iamges) {
             let i = this.currentImage % iamges.length;
             let path = iamges[i];
