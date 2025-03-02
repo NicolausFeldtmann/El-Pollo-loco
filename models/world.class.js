@@ -7,6 +7,9 @@ class World {
     keyboard;
     camera_x = 0;
     status = new StatusBar();
+    coinBar = new CoinBar();
+    bottleBar = new BolltleBar();
+    ouch = new Audio('audio/ouch.mp3');
     
     constructor(canvas, keyboard) {
         this.ctx = canvas.getContext('2d');
@@ -15,6 +18,7 @@ class World {
         this.draw();
         this.setWorld();
         this.checkCollision();
+        
     }
 
     setWorld() {
@@ -26,7 +30,8 @@ class World {
             this.level.enemies.forEach((enemy) => {
                 if(this.char.isColliding(enemy)) {
                     this.char.gotHurt();
-                    console.log('AY YAY YAY!', this.char.energy);
+                    this.status.setPrecentage(this.char.energy);
+                    this.ouch.play();
                 }
             });
         }, 200)
@@ -41,7 +46,13 @@ class World {
             this.addToMap(this.char);
             this.addObjToMap(this.level.enemies);
             this.addObjToMap(this.level.clouds);
+
+            this.ctx.translate(-this.camera_x, 0);
             this.addToMap(this.status);
+            this.addToMap(this.coinBar);
+            this.addToMap(this.bottleBar);
+            this.ctx.translate(this.camera_x, 0);
+
             this.ctx.translate(-this.camera_x, 0);
 
             let self = this;
