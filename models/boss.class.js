@@ -23,7 +23,7 @@ class Boss extends MovableObject {
         this.x = 5040;
         this.moveLeft();
         this.animate();
-    
+        this.otherDirection = false;
     }
 
     animate() {

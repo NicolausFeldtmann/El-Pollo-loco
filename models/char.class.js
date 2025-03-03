@@ -39,7 +39,7 @@ class Char extends MovableObject {
     
     width = 150;
     height = 280;
-    y = 10;
+    y = 180;
     currentImage = 0;
     world;
     speed = 10;

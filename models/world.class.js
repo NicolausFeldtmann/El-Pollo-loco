@@ -9,6 +9,7 @@ class World {
     status = new StatusBar();
     coinBar = new CoinBar();
     bottleBar = new BolltleBar();
+    bottle = [];
     ouch = new Audio('audio/ouch.mp3');
     
     constructor(canvas, keyboard) {
@@ -17,6 +18,7 @@ class World {
         this.keyboard = keyboard;
         this.draw();
         this.setWorld();
+        this.run();
         this.checkCollision();
         
     }
@@ -25,8 +27,22 @@ class World {
         this.char.world = this;
     }
 
-    checkCollision() {
+    run() {
         setInterval(() => {
+            this.checkCollision();
+            this.checkThrow();
+        }, 200)
+    }
+
+    checkThrow() {
+        if (this.keyboard.THROW) {
+            let bottle = new Bottle(this.char.x, this.char.y);
+            this.bottle.push(bottle);
+            console.log('OLEE!');
+        }
+    }
+
+    checkCollision() {
             this.level.enemies.forEach((enemy) => {
                 if(this.char.isColliding(enemy)) {
                     this.char.gotHurt();
@@ -34,7 +50,6 @@ class World {
                     this.ouch.play();
                 }
             });
-        }, 200)
     }
         
         draw() {
@@ -46,7 +61,9 @@ class World {
             this.addToMap(this.char);
             this.addObjToMap(this.level.enemies);
             this.addObjToMap(this.level.clouds);
+            this.addObjToMap(this.bottle);
 
+            //Area for fixed on screen
             this.ctx.translate(-this.camera_x, 0);
             this.addToMap(this.status);
             this.addToMap(this.coinBar);

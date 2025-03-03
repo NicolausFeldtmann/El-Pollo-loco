@@ -1,23 +1,15 @@
 class DrawObjects {
     x = 120;
     y = 300;
-    img;
     height = 150;
     width = 100;
+    img;
     imgCache = {};
-    otherDirection = false;
+    currentImage = 0;
 
     loadImg(path) {
         this.img = new Image();
         this.img.src = path;
-    }
-
-    loadImages(arr) {
-        arr.forEach(path => {
-        let img = new Image();
-        img.src = path;
-        this.imgCache[path] = img;
-        });
     }
     
     draw(ctx) {
@@ -32,5 +24,13 @@ class DrawObjects {
         ctx.rect(this.x, this.y, this.width, this.height);
         ctx.stroke();
         }
+    }
+
+    loadImages(arr) {
+        arr.forEach(path => {
+        let img = new Image();
+        img.src = path;
+        this.imgCache[path] = img;
+        });
     }
 }

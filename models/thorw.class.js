@@ -1,3 +1,0 @@
-class Throw extends DrawObjects {
-    
-}

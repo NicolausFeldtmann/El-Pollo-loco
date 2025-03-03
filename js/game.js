@@ -6,7 +6,7 @@ function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
     backGrnMusic = new Audio('audio/music.mp3');
-    //playAudio();
+    playAudio();
 }
 
 function playAudio() {
@@ -32,9 +32,10 @@ window.addEventListener('keydown', (e) => {
         keyboard.SPACE = true;
     }
     if(e.keyCode == 69) {
-        keyboard.THROW;
+        keyboard.THROW = true;
     }
-        
+    console.log(e);
+    
 })
 
 window.addEventListener('keyup', (e) => {
@@ -53,7 +54,7 @@ window.addEventListener('keyup', (e) => {
     if(e.keyCode == 32) {
         keyboard.SPACE = false;
     }
-    if(e.keyCode == 81) {
-        keyboard.THROW;
+    if(e.keyCode == 69) {
+        keyboard.THROW = false;
     }  
 })
