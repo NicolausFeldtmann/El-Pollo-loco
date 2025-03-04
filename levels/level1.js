@@ -48,6 +48,14 @@ const level1 = new Level(
         new BackGrnObj('img/5_background/layers/1_first_layer/2.png', 0, 5040),
     ],
     [
+        new AmmoBottle('img/6_salsa_bottle/1_salsa_bottle_on_ground.png', 360, 480),
+        new AmmoBottle('img/6_salsa_bottle/1_salsa_bottle_on_ground.png', 360, 990),
+        new AmmoBottle('img/6_salsa_bottle/1_salsa_bottle_on_ground.png', 360, 1800),
+        new AmmoBottle('img/6_salsa_bottle/1_salsa_bottle_on_ground.png', 360, 2400),
+        new AmmoBottle('img/6_salsa_bottle/1_salsa_bottle_on_ground.png', 360, 3800),
+        new AmmoBottle('img/6_salsa_bottle/1_salsa_bottle_on_ground.png', 360, 4800),
+    ],
+    [
         new Sky('img/5_background/layers/air.png',0, 0),
         new Sky('img/5_background/layers/air.png',0, 719),
         new Sky('img/5_background/layers/air.png',0, 1437),

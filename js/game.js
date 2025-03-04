@@ -33,9 +33,7 @@ window.addEventListener('keydown', (e) => {
     }
     if(e.keyCode == 69) {
         keyboard.THROW = true;
-    }
-    console.log(e);
-    
+    } 
 })
 
 window.addEventListener('keyup', (e) => {

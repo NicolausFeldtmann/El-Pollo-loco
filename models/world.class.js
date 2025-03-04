@@ -20,6 +20,7 @@ class World {
         this.setWorld();
         this.run();
         this.checkCollision();
+        this.checkPickUp();
         
     }
 
@@ -51,6 +52,17 @@ class World {
                 }
             });
     }
+
+    checkPickUp() {
+        this.level.ammo.forEach((ammo) => {
+            if(this.char.isColliding(ammo)) {
+                this.char.pickUpAmmo();
+                this.status.setPrecentage(this.char.ammo);
+                console.log('checkPickUp');
+                
+            }
+        })
+    }
         
         draw() {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -58,6 +70,7 @@ class World {
             this.addObjToMap(this.level.sky);
             this.addObjToMap(this.level.background);
             this.addObjToMap(this.level.backGrnObj);
+            this.addObjToMap(this.level.ammo);
             this.addToMap(this.char);
             this.addObjToMap(this.level.enemies);
             this.addObjToMap(this.level.clouds);

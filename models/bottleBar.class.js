@@ -18,7 +18,7 @@ class BolltleBar extends DrawObjects {
         this.height = 60;
         this.x = 50;
         this.y = 100;
-        this.setPrencentage(100);
+        this.setPrencentage(60);
     }
 
     setPrencentage(prencentage) {

@@ -4,6 +4,7 @@ class MovableObject extends DrawObjects {
     speedY = 0;
     accel = 1;
     energy = 100;
+    ammo = 100;
     lastHit = 0;
     otherDirection = false;
     camera_x = 0;
@@ -15,6 +16,10 @@ class MovableObject extends DrawObjects {
                 this.speedY -= this.accel;
             }
         }, 1000 / 25)
+    }
+
+    isAboveGround() {
+        return this.y < 180;
     }
     
     playAnimation(iamges) {
@@ -40,6 +45,18 @@ class MovableObject extends DrawObjects {
         }
     }
 
+    pickUpAmmo() {
+        this.ammo += 10;
+        console.log('pick up ammo');
+        this.lastPickUp = new Date().getTime();
+    }
+
+    gotAmmo() {
+        let timePassed = new Date().getTime() - this.lastPickUp;
+        timePassed = timePassed / 1000;
+        return timePassed < 1;
+    }
+
     isHurt() {
         let timePassed = new Date().getTime() - this.lastHit;
         timePassed = timePassed / 1000;
@@ -48,10 +65,6 @@ class MovableObject extends DrawObjects {
 
     isDead() {
         return this.energy == 0;
-    }
-
-    isAboveGround() {
-        return this.y < 200;
     }
 
     moveRight() {
