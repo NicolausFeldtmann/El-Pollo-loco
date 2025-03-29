@@ -6,6 +6,13 @@ class Bottle extends MovableObject {
         'img/6_salsa_bottle/bottle_rotation/3_bottle_rotation.png',
         'img/6_salsa_bottle/bottle_rotation/4_bottle_rotation.png',
     ];
+
+    offset = {
+        top: 80,
+        left: 100,
+        right: 100,
+        bottom: 40,
+    };
     
     constructor(x, y) {
         super().loadImg('img/6_salsa_bottle/bottle_rotation/1_bottle_rotation.png');

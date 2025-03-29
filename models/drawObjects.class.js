@@ -26,6 +26,16 @@ class DrawObjects {
         }
     }
 
+    drawHitBox() {
+        if (this instanceof Char || this instanceof Bottle || this instanceof Chick || this instanceof Boss) {
+            ctx.beginPath();
+            ctx.lineWidth = '2';
+            ctx.strokeStyle = 'red';
+            ctx.rect(this.x + this.offset.left, this.y + this.offset.top, this.width - this.offset.right -this.offset.left, this.height - this.offset.top - this.offset.bottom);
+            ctx.stroke();
+        }
+    }
+
     loadImages(arr) {
         arr.forEach(path => {
         let img = new Image();

@@ -3,6 +3,12 @@ class Boss extends MovableObject {
     height = 500;
     width = 300;
     y = 0;
+    offset = {
+        top: 120,
+        left: 105,
+        right: 120,
+        bottom: 80,
+    };
 
     IMAGE_WALKING = [
         'img/4_enemie_boss_chicken/2_alert/G5.png',
