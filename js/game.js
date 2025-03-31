@@ -6,7 +6,7 @@ function init() {
     canvas = document.getElementById('canvas');
     world = new World(canvas, keyboard);
     backGrnMusic = new Audio('audio/music.mp3');
-    playAudio();
+    //playAudio();
 }
 
 function playAudio() {

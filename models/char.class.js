@@ -100,7 +100,7 @@ class Char extends MovableObject {
             }
             this.world.camera_x = -this.x + 100;
 
-            if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT && !is) {
+            if(this.world.keyboard.RIGHT || this.world.keyboard.LEFT) {
                 this.walkAnimation();
             }
 

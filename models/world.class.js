@@ -21,48 +21,60 @@ class World {
         this.run();
         this.checkCollision();
         this.checkPickUp();
-        
+        this.checkGotHit();
     }
 
-    setWorld() {
-        this.char.world = this;
-    }
-
-    run() {
-        setInterval(() => {
-            this.checkCollision();
-            this.checkThrow();
-        }, 200)
-    }
-
-    checkThrow() {
-        if (this.keyboard.THROW) {
-            let bottle = new Bottle(this.char.x, this.char.y);
-            this.bottle.push(bottle);
-            console.log('OLEE!');
+        setWorld() {
+            this.char.world = this;
         }
-    }
 
-    checkCollision() {
-            this.level.enemies.forEach((enemy) => {
-                if(this.char.isColliding(enemy)) {
-                    this.char.gotHurt();
-                    this.status.setPrecentage(this.char.energy);
-                    this.ouch.play();
-                }
-            });
-    }
+        run() {
+            setInterval(() => {
+                this.checkCollision();
+                this.checkThrow();
+            }, 200)
+        }
 
-    checkPickUp() {
-        this.level.ammo.forEach((ammo) => {
-            if(this.char.isColliding(ammo)) {
-                this.char.pickUpAmmo();
-                this.status.setPrecentage(this.char.ammo);
-                console.log('checkPickUp');
-                
+        checkThrow() {
+            if (this.keyboard.THROW) {
+                let bottle = new Bottle(this.char.x, this.char.y);
+                this.bottle.push(bottle);
+                console.log('OLEE!');
             }
-        })
-    }
+        }
+
+        checkCollision() {
+                this.level.enemies.forEach((enemy) => {
+                    if(this.char.isColliding(enemy)) {
+                        this.char.gotHurt();
+                        this.status.setPrecentage(this.char.energy);
+                        this.ouch.play();
+                    }
+                });
+        }
+
+        checkPickUp() {
+            this.level.ammo.forEach((ammo) => {
+                if(this.char.isColliding(ammo)) {
+                    this.char.pickUpAmmo();
+                    this.status.setPrecentage(this.char.ammo);
+                    console.log('checkPickUp');
+                    
+                }
+            })
+        }
+
+        checkGotHit() {
+            this.bottle.forEach((bollte) => {
+                this.level.enemies.forEach((enemy) => {
+                    if (enemy.isColliding(mo)) {
+                        //enemy.chickHurt();
+                        console.log('BOING!S');
+                        
+                    }
+                })
+            })
+        }
         
         draw() {
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);

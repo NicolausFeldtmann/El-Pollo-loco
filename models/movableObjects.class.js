@@ -2,7 +2,7 @@ class MovableObject extends DrawObjects {
 
     speed = 0.15;
     speedY = 0;
-    accel = 1;
+    accel = 1.5;
     energy = 100;
     ammo = 100;
     lastHit = 0;
@@ -19,7 +19,11 @@ class MovableObject extends DrawObjects {
     }
 
     isAboveGround() {
-        return this.y < 180;
+        if (this instanceof Bottle) {
+            return true;
+        } else {
+            return this.y < 180;
+        }
     }
     
     playAnimation(iamges) {
@@ -30,6 +34,10 @@ class MovableObject extends DrawObjects {
     }
 
     isColliding(mo) {
+        if (!mo || !mo.offset) {
+            return false; 
+        }
+    
         return (
             this.x + this.width - this.offset.right > mo.x + mo.offset.left &&
             this.y + this.height - this.offset.bottom > mo.y + mo.offset.top &&
